@@ -28,11 +28,13 @@ A AWS S3 bucket is created with two folders: `input-dat`a for storing raw sample
 
   Amazon EMR( Elastic Map Reduce) is used as the processing cluster in this project. Amazon EMR is a fully-managed big data processing service from AWS that simplifies handling large data volumes using frameworks like Apache Hadoop, Apache Spark, and Presto. It automates the provisioning, scaling, and management of clusters running these frameworks. EMR offers a user-friendly web interface, command-line tools, and APIs for cluster management. It's key features include being fully managed, scalablility with workload demands, being flexible with support for various big data tools, having a pay-as-you-go model and spot instances, and integrated with other AWS services like S3, DynamoDB, and Redshift for seamless data movement.
 
- - Creating EC2 key pair
-In order to ecurely access the EC2 instances that will be created when creating the EMR cluser, a key pair should be created and downloaded as a .pem file. The key pair is used to authenticate the SSH (Secure Shell) connections to EC2 instances, and it's important to keep it secure and protected.
+ - Creating EC2 key pair:
+   
+   In order to ecurely access the EC2 instances that will be created when creating the EMR cluser, a key pair should be created and downloaded as a .pem file. The key pair is used to authenticate the SSH (Secure Shell) connections to EC2 instances, and it's important to keep it secure and protected.
 
-- Configuring the cluster 
-When creating the EMR cluster, the **Spark application** bundle is installed, including **Hadoop** and **Spark** for big data processing, **Hive** for data warehousing and SQL-based querying, and **Zeppelin** as a collaborative notebook for data analytics and visualization using SQL and Python. The network and security settings are configured to allow SSH access to the primary cluster node using an SSH key pair.IAM roles for the cluster should be granted permissions for S3FullAccess and EC2FullAccess policies, as AWS S3 will be used for storage and EC2 for computing and processing.
+- Configuring the cluster :
+  
+  When creating the EMR cluster, the **Spark application** bundle is installed, including **Hadoop** and **Spark** for big data processing, **Hive** for data warehousing and SQL-based querying, and **Zeppelin** as a collaborative notebook for data analytics and visualization using SQL and Python. The network and security settings are configured to allow SSH access to the primary cluster node using an SSH key pair.IAM roles for the cluster should be granted permissions for S3FullAccess and EC2FullAccess policies, as AWS S3 will be used for storage and EC2 for computing and processing.
 
 
 
