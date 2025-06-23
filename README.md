@@ -20,7 +20,7 @@ This information can be used for various analyses and research purposes related 
 ## Datapipeline 
 
 ### 1. Storage of sampled data in AWS S3 bucket 
-A AWS S3 bucket is created with two folders: `input-dat`a for storing raw sampled data and `output-data` for storing processed data.
+AWS S3 bucket is created with two folders: `input-dat`a for storing raw sampled data and `output-data` for storing processed data. Then the raw wikipedia data should be uploaded to the inpu-data folder of the S3 bucket.
 
 ### 2. Set up AWS EMR cluster 
 
@@ -36,9 +36,20 @@ A AWS S3 bucket is created with two folders: `input-dat`a for storing raw sample
   
   When creating the EMR cluster, the **Spark application** bundle is installed, including **Hadoop** and **Spark** for big data processing, **Hive** for data warehousing and SQL-based querying, and **Zeppelin** as a collaborative notebook for data analytics and visualization using SQL and Python. The network and security settings are configured to allow SSH access to the primary cluster node using an SSH key pair.IAM roles for the cluster should be granted permissions for S3FullAccess and EC2FullAccess policies, as AWS S3 will be used for storage and EC2 for computing and processing.
 
+### 3. Connect to the EMR cluster using SSH via CLI
 
+The following  steps are performed to make a connection to the running EMR cluster using the CLI or terminal app.
+1. Navigate to the folder where the SSH key pair file is stored.
+2. Retrieve the public DNS name of the master cluster node of the EMR cluster.
+3. Connect to the master node of the EMr cluster using the SSH key by folllowing command:
+   ```python
+   ssh -i <keypair file name> hadoop@ < public DNS of master node>
+   ```
+4. Slect 'yes' for the prompt if connecting the cluster for the first time.
 
+### 4. Running the Pyspark codes on the EMR cluster
+In order to perform the filtering and aggregrating tasks for this project, two seperate python scripts are created using the python's Pyspark library designed for working with large datasets. These codes will fetch the data from the AWS S3 bucket's `input-data` folder, perform filtering and aggregration on the data and finally push the processed data back into appropriate folders in `output-data` folder of the S3 bucket.
 
-
+- 
 
 
