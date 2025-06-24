@@ -50,6 +50,21 @@ The following  steps are performed to make a connection to the running EMR clust
 ### 4. Running the Pyspark codes on the EMR cluster
 In order to perform the filtering and aggregrating tasks for this project, two seperate python scripts are created using the python's Pyspark library designed for working with large datasets. These codes will fetch the data from the AWS S3 bucket's `input-data` folder, perform filtering and aggregration on the data and finally push the processed data back into appropriate folders in `output-data` folder of the S3 bucket.
 
-- 
-
-
+- #### I. Filtering script
+  As shown in the [main () function of the filtering script](codes/main.py), the JSON data fetched from the S3 storage bucket is converted to a spark dataframe in order to apply the filtering the condition, **"isRobot"== False & "countryName == 'UnitedStates'**. The function prints the count of the records in the filtered dataset and the schema of the dataset, followed by storing the filtered dataset in the `"output-data/filtered"` folder of the s3 bucket overwritten in the paqruet format.
+  
+The following images shows the printschema of the filtered dataset obtained from the EMR cluster using CLI : 
+![image2](Images/2.png)
+           *Image 1: Printschema of the filtered dataframe* 
+ 
+ The number of records in the filtered dataset is **528** as shown in the [CLI](Images/4.png)
+   
+- #### II. Aggregating script
+The [main() function of the aggregated script](codes/aggregation.py) shows the JSON data fetched from the S3 storage bucket is converted to a spark dataframe in order to aggregate the data by the channel. The function prints the count of the records in the aggregated dataset and the schema of the new dataset, followed by storing the aggregated dataset in the `"output-data/aggregated"` folder of the s3 bucket overwritten in the paqruet format.
+  
+The following images shows the printschema of the filtered dataset obtained from the EMR cluster using CLI : 
+![image2](Images/5.png)
+                  *Image 2 : Printschema of the aggregated dataframe*
+                  
+ 
+ The number of records in the aggregated dataset is **51** as shown in the [CLI](Images/3.png)
