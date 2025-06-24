@@ -16,8 +16,9 @@ username or IP address of the editor, the timestamp of the edit, and the text of
 ## Goal 
 The primary goal of this project is to use the AWS services such as S3 for data storage and EMR as the processing cluster to process the wikipedia data for two main tasks: to filter out records by  conditions, where `isRobot`: False & `countryName`: “United States” and to aggregrate the data by the channel.
 This information can be used for various analyses and research purposes related to Wikipedia, such as studying patterns in the types of edits that are made, examining the behavior of different types of editors, or tracking the evolution of particular articles over time.
-
-## Datapipeline 
+## Project Architecture 
+![image](Images/architecture.png)
+## Data pipeline 
 
 ### 1. Storage of sampled data in AWS S3 bucket 
 AWS S3 bucket is created with two folders: `input-dat`a for storing raw sampled data and `output-data` for storing processed data. Then the raw wikipedia data should be uploaded to the inpu-data folder of the S3 bucket.
