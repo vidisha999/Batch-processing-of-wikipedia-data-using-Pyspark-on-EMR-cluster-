@@ -50,6 +50,14 @@ The following  steps are performed to make a connection to the running EMR clust
 ### 4. Running the Pyspark codes on the EMR cluster
 In order to perform the filtering and aggregrating tasks for this project, two seperate python scripts are created using the python's Pyspark library designed for working with large datasets. These codes will fetch the data from the AWS S3 bucket's `input-data` folder, perform filtering and aggregration on the data and finally push the processed data back into appropriate folders in `output-data` folder of the S3 bucket.
 
+The python codes are run in the ER cluster using the follwoing commands in the CLI : 
+1. Use `vi` command to create and name the python file.
+2. Enter the insert mode pressing the 'i' key.
+3. Copy the python scripts to the CLI.
+4. Escape and exit the insert mode.
+5. `:wq` command to write the file to the disk and quit `vi` which saves and exit the file.
+6. use `spark-submit-filename.py` to execute the created python file on the EMR cluster.
+
 - #### I. Filtering script
   As shown in the [main () function of the filtering script](codes/main.py), the JSON data fetched from the S3 storage bucket is converted to a spark dataframe in order to apply the filtering the condition, **"isRobot"== False & "countryName == 'UnitedStates'**. The function prints the count of the records in the filtered dataset and the schema of the dataset, followed by storing the filtered dataset in the `"output-data/filtered"` folder of the s3 bucket overwritten in the paqruet format.
   
