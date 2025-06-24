@@ -76,3 +76,10 @@ The following images shows the printschema of the filtered dataset obtained from
                   
  
  The number of records in the aggregated dataset is **51** as shown in the [CLI](Images/3.png)
+
+### 5. Analyze the data using AWS Athena 
+
+
+
+
+ 
