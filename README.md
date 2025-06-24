@@ -79,6 +79,13 @@ The following images shows the printschema of the filtered dataset obtained from
 
 ### 5. Analyze the data using AWS Athena 
 
+Amazon Athena is a serverless, fully managed analytics service that enables users to run SQL queries directly on data stored in Amazon S3 without needing to set up or manage infrastructure. It supports standard SQL, integrates well with AWS services like Glue and Redshift, and uses a pay-as-you-go model ideal for ad hoc analysis. In this project AWS athena is used to analyze the pre-processed data stored in parquet format with simple SQL queries. 
+
+
+
+
+
+
 
 
 
